@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 namespace System_do_licencji.Models
 {
     public class DbInitializer
-{
-}
+    {
+        internal static void Seed(object context)
+        {
+            
+        }
+    }
 }
