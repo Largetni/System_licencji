@@ -21,7 +21,7 @@ namespace System_do_licencji.Models
 
         public Player GetPlayer(int playerId)
         {
-            throw new NotImplementedException();
+            return _appDbContext.Players.FirstOrDefault(s => s.Id == playerId);
         }
     }
 }
