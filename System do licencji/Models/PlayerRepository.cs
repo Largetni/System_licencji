@@ -16,7 +16,7 @@ namespace System_do_licencji.Models
 
         public IEnumerable<Player> GetAllPlayers()
         {
-            throw new NotImplementedException();
+            return _appDbContext.Players;
         }
 
         public Player GetPlayer(int playerId)
