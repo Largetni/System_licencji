@@ -15,6 +15,7 @@ namespace System_do_licencji.Models
         }
 
         public DbSet<Player> Players { get; set; }
+        public DbSet<Club> Clubs { get; set; }
 
     }
 }
