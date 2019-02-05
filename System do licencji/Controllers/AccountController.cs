@@ -42,7 +42,7 @@ namespace System_do_licencji.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
 
             }
@@ -68,9 +68,11 @@ namespace System_do_licencji.Controllers
 
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
             }
+
+            ModelState.AddModelError("", "Rejestracja nieudana");
 
             return View(new LoginVM());
         }
