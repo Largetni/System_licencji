@@ -1,0 +1,23 @@
+﻿@model Player
+
+<h2> Witamy w systemie @Model.Name - @Model.Surname</h2>
+
+<div class="text-right">
+    <h3>Twoje Licencje:</h3>
+    <ul>
+        <li>Licencja pierwszego stopnia</li>
+        <li>Licencja drugiego stopnia</li>
+        <li>Licencja trzeciego stopnia</li>
+    </ul>
+    <div>
+        <h3>Twoja licencja jest:</h3>
+        @if (Model.LicenseIsRenewed)
+        {
+            <h4>Ważna</h4>
+        }
+        else
+        {
+            <h4 class="text-danger">Nieważna</h4>
+        }
+    </div>
+</div>
