@@ -49,34 +49,45 @@ namespace System_do_licencji.Controllers
 
             }
 
-            ModelState.AddModelError("", "Nazwa użytkowninka lub hasło jest nieprawidłowe");
+            ModelState.AddModelError("", "Nazwa uzytkowninka lub haslo jest nieprawidlowe");
 
             return View(loginVM);
-            
+
         }
 
         public IActionResult Register()
         {
-            return View(new LoginVM());
+            return View(new RegisterVM());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(LoginVM loginVM)
+        public async Task<IActionResult> Register(RegisterVM registerVM)
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser() { UserName = loginVM.UserName };
-                var result = await _userManager.CreateAsync(user, loginVM.Password);
-
-                if(result.Succeeded)
+                var user = new Player()
                 {
+                    UserName = registerVM.UserName,
+                    Email = registerVM.Email,
+                    Name = registerVM.Name,
+                    Surname = registerVM.Surname,
+                    Street = registerVM.Street,
+                    City = registerVM.City
+                };
+                var result = await _userManager.CreateAsync(user, registerVM.Password);
+
+                if (result.Succeeded)
+                {
+
+
+
+
                     return RedirectToAction("Index", "Profile");
                 }
             }
-
             ModelState.AddModelError("", "Rejestracja nieudana");
 
-            return View(new LoginVM());
+            return View(new RegisterVM());
         }
 
         [HttpPost]
@@ -86,5 +97,5 @@ namespace System_do_licencji.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-}
+    }
 }
