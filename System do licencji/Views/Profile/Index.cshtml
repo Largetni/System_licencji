@@ -1,23 +1,33 @@
-﻿@model Player
+﻿
+@using Microsoft.AspNetCore.Identity
 
-<h2> Witamy w systemie @Model.Name - @Model.Surname</h2>
+@inject SignInManager<Player> SignInManager
+@inject UserManager<Player> UserManager
 
+@model System_do_licencji.Models.Player
+
+<h2> Witamy w systemie @UserManager.GetUserName(User).  </h2>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul>
+        <li>@User.Identity.Name</li>
+        <li>@Html.DisplayFor(model => model.City)</li>
+        <li>@User.Identity</li>
+        <li>@User.Identity</li>
+        <li>@ViewBag.userId</li>
+    </ul>
+}
+else
+{
+    <div><h2>Cos poszlo nie tak :?</h2></div>
+}
 <div class="text-right">
     <h3>Twoje Licencje:</h3>
     <ul>
-        <li>Licencja pierwszego stopnia</li>
+        <li>  pierwszego stopnia</li>
         <li>Licencja drugiego stopnia</li>
         <li>Licencja trzeciego stopnia</li>
     </ul>
-    <div>
-        <h3>Twoja licencja jest:</h3>
-        @if (Model.LicenseIsRenewed)
-        {
-            <h4>Ważna</h4>
-        }
-        else
-        {
-            <h4 class="text-danger">Nieważna</h4>
-        }
-    </div>
+
 </div>
