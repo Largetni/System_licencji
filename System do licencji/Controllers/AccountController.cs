@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System_do_licencji.ViewModels;
+using System_do_licencji.Models;
+using System_do_licencji.Areas.Identity.Pages.Account;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,10 +14,10 @@ namespace System_do_licencji.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Player> _signInManager;
+        private readonly UserManager<Player> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(SignInManager<Player> signInManager, UserManager<Player> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
