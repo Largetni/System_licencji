@@ -34,7 +34,7 @@ namespace System_do_licencji
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<Player, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultUI();
             services.AddTransient<IPlayerRepository, PlayerRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
