@@ -19,7 +19,7 @@ namespace System_do_licencji.Models
             return _appDbContext.Players;
         }
 
-        public Player GetPlayer(int playerId)
+        public Player GetPlayer(string playerId)
         {
             return _appDbContext.Players.FirstOrDefault(s => s.Id == playerId);
         }
