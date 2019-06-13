@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System_do_licencji.Models;
 
 namespace System_do_licencji.Models
 {
-    public class AppDbContext : IdentityDbContext<IdentityUser>
+    public class AppDbContext : IdentityDbContext<Player>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
