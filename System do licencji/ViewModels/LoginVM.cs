@@ -11,6 +11,7 @@ namespace System_do_licencji.ViewModels
         [Required]
         [Display(Name = "Nazwa Użytkownika")]
         public string UserName { get; set; }
+
         [Required]
         [Display(Name = "Hasło")]
         [DataType(DataType.Password)]
