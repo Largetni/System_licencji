@@ -10,24 +10,39 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <ul>
-        <li>@User.Identity.Name</li>
-        <li>@Html.DisplayFor(model => model.City)</li>
-        <li>@User.Identity</li>
-        <li>@User.Identity</li>
-        <li>@ViewBag.userId</li>
-    </ul>
+    <div>
+        <ul>
+            <li>@Html.DisplayFor(model => model.Name)</li>
+            <li>@Html.DisplayFor(model => model.Surname)</li>
+            <li>@Html.DisplayFor(model => model.Street)</li>
+            <li>@Html.DisplayFor(model => model.City)</li>
+        </ul>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success btn-sm" style="margin-bottom:3px">Edytuj</a>
+    </div>
 }
 else
 {
     <div><h2>Cos poszlo nie tak :?</h2></div>
 }
-<div class="text-right">
+<div class="text-left">
     <h3>Twoje Licencje:</h3>
     <ul>
-        <li>  pierwszego stopnia</li>
-        <li>Licencja drugiego stopnia</li>
-        <li>Licencja trzeciego stopnia</li>
+        <li>
+            Licencja pierwszego stopnia jest:  @if (@Model.HasFirstLicense)
+            {<div>Wazna</div> }
+            else
+            { <div class="danger">Niewazna</div>}
+        </li>
+        <li>
+            Licencja drugiego stopnia jest:  @if (@Model.HasSecondLicense)
+            {<div>Wazna</div>}
+            else
+            { <div class="danger">Niewazna</div>}
+        <li>
+            Licencja trzeciego stopnia jest:  @if (@Model.HasThirdLicense)
+            {<div>Wazna</div>}
+            else
+            { <div class="danger">Niewazna</div>}
     </ul>
 
 </div>
