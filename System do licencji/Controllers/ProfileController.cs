@@ -29,5 +29,17 @@ namespace System_do_licencji.Controllers
                 return View(user);
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Player player)
+        {
+            if (ModelState.IsValid)
+            {
+                _userManager.EdytujSamochod(player);
+                return RedirectToAction("Index");
+            }
+            return View(player);
+        }
     }
 }

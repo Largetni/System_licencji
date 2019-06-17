@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System_do_licencji.ViewModels;
 using System_do_licencji.Models;
-using System_do_licencji.Areas.Identity.Pages.Account;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
