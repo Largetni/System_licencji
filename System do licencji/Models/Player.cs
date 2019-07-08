@@ -8,7 +8,7 @@ namespace System_do_licencji.Models
 {
     public class Player : IdentityUser
     {
-        public override string Id { get; set; }
+       // public override string Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Street { get; set; }
