@@ -44,7 +44,7 @@ namespace System_do_licencji.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index", "Profile", new { userID=user.Id }); 
                 }
 
             }
@@ -82,7 +82,7 @@ namespace System_do_licencji.Controllers
 
 
 
-                    return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index", "Profile", new { userID = user.Id }); 
                 }
             }
             ModelState.AddModelError("", "Rejestracja nieudana");
