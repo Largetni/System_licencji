@@ -1,17 +1,47 @@
-﻿@model Player
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Player> SignInManager
+@inject UserManager<Player> UserManager
+
+@model PlayerEditVM
 
 <h2>Edytuj swoje dane</h2>
 <hr />
 
-<form asp-action="Edit">
+<form asp-action="Edit" asp-controller="Profile" method="post">
+
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="col-md4">
-        <div class="form-group">
-            <label asp-for="Name" class="custom-control-label"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname"></label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Street"></label>
+        <input asp-for="Street" class="form-control" />
+        <span asp-validation-for="Street" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City"></label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
 
     <div class="form-group">
         <input type="submit" value="Zatwierdź zmiany" class="btn btn-success" style="margin-top:30px" />
