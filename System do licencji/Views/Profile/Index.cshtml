@@ -17,7 +17,7 @@
             <li>@Html.DisplayFor(model => model.Street)</li>
             <li>@Html.DisplayFor(model => model.City)</li>
         </ul>
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success btn-sm" style="margin-bottom:3px">Edytuj</a>
+        <a asp-action="Edit"  asp-controller="Profile" asp-route-id="@Model.Id" class="btn btn-success btn-sm" style="margin-bottom:3px">Edytuj</a>
     </div>
 }
 else
