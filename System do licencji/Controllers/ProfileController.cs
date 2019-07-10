@@ -52,11 +52,11 @@ namespace System_do_licencji.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(PlayerEditVM playerEditVM)
+        public async Task<IActionResult> Edit(PlayerEditVM playerEditVM)
         {
             if (ModelState.IsValid)
             {
-                Player player = _userManager.GetUserAsync(playerEditVM.);
+                Player player = await _userManager.GetUserAsync(HttpContext.User);
 
                 var user = new Player()
                 {
@@ -68,14 +68,10 @@ namespace System_do_licencji.Controllers
                     City = playerEditVM.City,
                    
                 };
-              //  var result = await _userManager.CreateAsync(user, playerEditVM.Password);
 
+                var result = await _userManager.CreateAsync(user, playerEditVM.Password);
                 if (result.Succeeded)
                 {
-
-
-
-
                     return RedirectToAction("Index", "Profile", new { userID = user.Id });
                 }
             }

@@ -10,7 +10,6 @@ namespace System_do_licencji.ViewModels
     public class RegisterVM
     {
 
-            [(DisplayValue = false)]
             public string Id { get; set; }
 
             [Required]
