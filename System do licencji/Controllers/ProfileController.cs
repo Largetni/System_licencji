@@ -58,16 +58,12 @@ namespace System_do_licencji.Controllers
             {
                 Player player = await _userManager.GetUserAsync(HttpContext.User);
 
-                var user = new Player()
-                {
-                    UserName = playerEditVM.UserName,
-                    Email = playerEditVM.Email,
-                    Name = playerEditVM.Name,
-                    Surname = playerEditVM.Surname,
-                    Street = playerEditVM.Street,
-                    City = playerEditVM.City,
-                   
-                };
+                player.Name = playerEditVM.Name;
+                player.UserName = playerEditVM.UserName;
+                player.Email = playerEditVM.Email;
+                player.Surname = playerEditVM.Surname;
+                player.Street = playerEditVM.Street;
+                player.City = playerEditVM.City;
 
                 var result = await _userManager.CreateAsync(user, playerEditVM.Password);
                 if (result.Succeeded)
