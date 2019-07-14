@@ -73,7 +73,7 @@ namespace System_do_licencji.Controllers
             }
            
 
-            return View( new PlayerEditVM());
+            return View(new PlayerEditVM());
         }
     }
 }
