@@ -71,9 +71,9 @@ namespace System_do_licencji.Controllers
 
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Edycja nieudana");
+           
 
-            return View(new RegisterVM());
+            return View( new PlayerEditVM());
         }
     }
 }
