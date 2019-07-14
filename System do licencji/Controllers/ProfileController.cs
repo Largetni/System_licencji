@@ -65,11 +65,11 @@ namespace System_do_licencji.Controllers
                 player.Street = playerEditVM.Street;
                 player.City = playerEditVM.City;
 
-                var result = await _userManager.CreateAsync(user, playerEditVM.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Profile", new { userID = user.Id });
-                }
+
+                await _userManager.UpdateAsync(player);
+
+
+                return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Edycja nieudana");
 
