@@ -38,7 +38,7 @@ namespace System_do_licencji.Controllers
         {
             
             Player player = _userManager.FindByIdAsync(id).Result;
-            PlayerEditVM playerEditVM=new PlayerEditVM
+            PlayerVM playerEditVM = new PlayerVM
             {
                UserName = player.UserName,
                 Email = player.Email,
@@ -52,18 +52,18 @@ namespace System_do_licencji.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(PlayerEditVM playerEditVM)
+        public async Task<IActionResult> Edit(PlayerVM playerVM)
         {
             if (ModelState.IsValid)
             {
                 Player player = await _userManager.GetUserAsync(HttpContext.User);
 
-                player.Name = playerEditVM.Name;
-                player.UserName = playerEditVM.UserName;
-                player.Email = playerEditVM.Email;
-                player.Surname = playerEditVM.Surname;
-                player.Street = playerEditVM.Street;
-                player.City = playerEditVM.City;
+                player.Name = playerVM.Name;
+                player.UserName = playerVM.UserName;
+                player.Email = playerVM.Email;
+                player.Surname = playerVM.Surname;
+                player.Street = playerVM.Street;
+                player.City = playerVM.City;
 
 
                 await _userManager.UpdateAsync(player);
@@ -73,7 +73,7 @@ namespace System_do_licencji.Controllers
             }
            
 
-            return View(new PlayerEditVM());
+            return View(new PlayerVM());
         }
     }
 }
